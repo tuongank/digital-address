@@ -1,0 +1,191 @@
+/* FONT */
+body {
+    font-family: "Times New Roman", serif;
+    margin: 0;
+    background: #ffffff;      /* Nền trắng sạch như VNA */
+    color: #222;
+    line-height: 1.6;
+}
+
+/* HEADER – Style giống Vietnam Airlines */
+.header {
+    background: #ffffff;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #004a80;
+    border-bottom: 2px solid #e5e5e5;    /* Viền nhạt giống VNA */
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-text h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #004a80;  /* Xanh VNA */
+    font-weight: bold;
+}
+
+.header-text p {
+    margin: 0;
+    font-size: 12px;
+    color: #0070c0;
+}
+
+/* MENU ICON */
+.menu-icon {
+    font-size: 26px;
+    cursor: pointer;
+    display: none;
+    color: #004a80;
+}
+
+/* NAV MENU – Thanh menu màu trắng xanh */
+.nav-menu {
+    background: #ffffff;
+    display: flex;
+    gap: 25px;
+    padding: 12px 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.nav-menu a {
+    color: #004a80;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.nav-menu a:hover {
+    color: #0070c0;
+    border-bottom: 2px solid #0070c0;
+    padding-bottom: 3px;
+}
+
+/* MAIN CONTENT */
+.content {
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px 20px;
+    background: #ffffff;
+}
+
+/* TITLES */
+.red-title {
+    color: #004a80;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.main-title {
+    font-size: 34px;
+    margin-top: 5px;
+    color: #00345c;
+    font-weight: bold;
+}
+
+.image-box {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.image-box figcaption {
+    font-size: 15px;
+    font-style: italic;
+    color: #555;
+    margin-top: 6px;
+}
+
+
+/* SECTION TITLES */
+.text-block h2 {
+    margin-top: 32px;
+    font-size: 26px;
+    color: #004a80;
+}
+
+.text-block h3 {
+    color: #005a9e;
+    margin-top: 22px;
+}
+
+/* BULLETS */
+.text-block ul li {
+    margin-bottom: 8px;
+}
+
+/* TABLE (Di vật) */
+.artifact-table th {
+    background: #e8eef5;
+    color: #00345c;
+}
+.artifact-table td {
+    background: #fafcff;
+}
+.artifact-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.artifact-table th,
+.artifact-table td {
+    border: 1px solid #c7b08b;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.artifact-table th {
+    background: #d8c3a5;
+    color: #5a3102;
+    font-weight: bold;
+}
+
+.artifact-table tr:nth-child(even) {
+    background: #f6efe4;
+}
+
+ul.no-dot,
+ul.no-dot ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+ul.no-dot li {
+    margin-bottom: 8px;
+}
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .main-title {
+        font-size: 26px;
+    }
+}
