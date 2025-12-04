@@ -7,15 +7,23 @@ body {
     line-height: 1.6;
 }
 
-/* HEADER – Style giống Vietnam Airlines */
+/* HEADER – Đồng bộ màu với footer */
 .header {
-    background: #ffffff;
+    background: #004a80;              /* Xanh đậm */
     padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #004a80;
-    border-bottom: 2px solid #e5e5e5;    /* Viền nhạt giống VNA */
+    color: #ffffff;                   /* Chữ trắng để nổi bật */
+    border-bottom: 4px solid #c7b08b; /* Viền vàng nhạt giống footer */
+}
+
+/* Text trong header */
+.header-text h2 {
+    font-size: 22px;
+    margin: 0;
+    color: #ffffff;      /* Chữ trắng */
+    font-weight: bold;
 }
 
 .header-left {
@@ -24,18 +32,12 @@ body {
     gap: 12px;
 }
 
-.header-text h2 {
-    font-size: 20px;
-    margin: 0;
-    color: #004a80;  /* Xanh VNA */
-    font-weight: bold;
+/* Logo chỉnh lại đẹp hơn */
+.header .logo {
+    width: 60px;
+    height: auto;
 }
 
-.header-text p {
-    margin: 0;
-    font-size: 12px;
-    color: #0070c0;
-}
 
 /* MENU ICON */
 .menu-icon {
@@ -171,6 +173,66 @@ ul.no-dot li {
 ul {
     list-style-type: none;
     padding-left: 0;
+}
+
+/* FOOTER */
+.footer {
+    background: #004a80;          /* Xanh đậm VNA */
+    color: #ffffff;
+    padding: 20px 10px;
+    margin-top: 40px;
+    border-top: 4px solid #c7b08b;   /* Viền vàng nhạt sang trọng */
+}
+
+.footer-content {
+    text-align: center;
+    max-width: 1000px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 15px;
+}
+
+.footer .subtext {
+    margin-top: 4px;
+    font-size: 13px;
+    opacity: 0.85;
+    font-style: italic;
+}
+
+/* Hiệu ứng hover nhẹ */
+.footer:hover {
+    background: #003b6a;
+    transition: 0.3s;
+}
+/* FACEBOOK CONTACT */
+.contact-fb {
+    margin: 6px 0;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Căn giữa trong footer */
+    gap: 6px;
+}
+
+.contact-fb .fb-icon {
+    font-size: 18px;
+}
+
+.contact-fb a {
+    color: #ffe08a;              /* Vàng nhạt nổi bật trên nền xanh */
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.contact-fb a:hover {
+    color: #ffffff;              /* Chuyển sang trắng khi hover */
+    /* text-decoration: underline; */
+    letter-spacing: 0.3px;
 }
 
 
