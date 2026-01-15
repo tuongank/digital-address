@@ -1,24 +1,26 @@
 /* ========== Base ========== */
 :root{
-  --bg: #0b1220;
-  --surface: rgba(255,255,255,.06);
-  --surface-2: rgba(255,255,255,.10);
-  --text: rgba(255,255,255,.86);
-  --muted: rgba(255,255,255,.66);
-  --line: rgba(255,255,255,.14);
+  /* Light theme */
+  --bg: #f6f8fc;
+  --surface: rgba(255,255,255,.80);
+  --surface-2: rgba(255,255,255,.95);
+  --text: rgba(15, 23, 42, .92);     /* slate-900 */
+  --muted: rgba(15, 23, 42, .62);
+  --line: rgba(15, 23, 42, .12);
 
-  --brand: #ff3b3b;
-  --brand-2: #ffb020;
-  --ok: #38d39f;
+  --brand: #e11d48;                  /* rose-600 */
+  --brand-2: #f59e0b;                /* amber-500 */
+  --ok: #10b981;                     /* emerald-500 */
 
-  --shadow: 0 18px 45px rgba(0,0,0,.40);
-  --shadow-soft: 0 12px 30px rgba(0,0,0,.28);
+  --shadow: 0 18px 45px rgba(15,23,42,.12);
+  --shadow-soft: 0 12px 30px rgba(15,23,42,.10);
 
   --radius: 18px;
   --radius-lg: 22px;
 
   --max: 1120px;
 }
+
 
 *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
@@ -27,10 +29,10 @@ body{
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--text);
   background:
-    radial-gradient(1000px 600px at 80% -10%, rgba(255,59,59,.25), transparent 60%),
-    radial-gradient(900px 500px at 10% 0%, rgba(255,176,32,.18), transparent 60%),
-    radial-gradient(900px 700px at 50% 110%, rgba(56,211,159,.12), transparent 55%),
-    var(--bg);
+  radial-gradient(900px 520px at 85% -10%, rgba(225,29,72,.14), transparent 60%),
+  radial-gradient(820px 520px at 10% 0%, rgba(245,158,11,.14), transparent 60%),
+  radial-gradient(900px 700px at 50% 110%, rgba(16,185,129,.10), transparent 55%),
+  var(--bg);
   line-height: 1.7;
 }
 
@@ -189,8 +191,7 @@ h1,h2,h3{ line-height: 1.18; margin: 0 0 12px; }
 }
 .hero-subtitle{
   max-width: 66ch;
-  font-size: 16px;
-  color: rgba(255,255,255,.80);
+  font-size: 20px;
 }
 
 .hero-stats{
@@ -206,7 +207,7 @@ h1,h2,h3{ line-height: 1.18; margin: 0 0 12px; }
   padding: 14px 14px;
   border-radius: var(--radius);
   border: 1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.20);
+  background: rgb(117 229 255 / 42%);
   backdrop-filter: blur(12px);
 }
 .stat-icon{
@@ -301,7 +302,6 @@ h1,h2,h3{ line-height: 1.18; margin: 0 0 12px; }
   padding: 10px 12px;
   border-radius: 14px;
   border: 1px solid transparent;
-  color: rgba(255,255,255,.78);
   background: rgba(0,0,0,.14);
   transition: .2s ease;
 }
@@ -360,7 +360,6 @@ h1,h2,h3{ line-height: 1.18; margin: 0 0 12px; }
 /* Media */
 .media-grid{
   display:grid;
-  grid-template-columns: 1.2fr .8fr;
   gap: 14px;
   margin: 12px 0 12px;
 }
@@ -383,8 +382,8 @@ h1,h2,h3{ line-height: 1.18; margin: 0 0 12px; }
 figcaption{
   padding: 10px 12px 12px;
   font-size: 13px;
-  color: rgba(255,255,255,.74);
-  border-top: 1px solid rgba(255,255,255,.10);
+  color: rgba(0, 0, 0, 0.74);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Callout */
@@ -431,7 +430,7 @@ figcaption{
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.14);
   background: rgba(0,0,0,.16);
-  color: rgba(255,255,255,.82);
+  color: rgba(0, 0, 0, 0.82);
   font-weight: 600;
   font-size: 13px;
 }
@@ -487,7 +486,7 @@ figcaption{
 .accordion summary::-webkit-details-marker{ display:none; }
 .details-body{
   padding: 0 14px 12px;
-  color: rgba(255,255,255,.82);
+  color: rgba(0, 0, 0, 0.82);
 }
 
 /* Tables */
@@ -555,7 +554,7 @@ figcaption{
   margin-top: 4px;
 }
 .contact-link:hover{ text-decoration: underline; }
-.contact-text{ margin-top: 4px; color: rgba(255,255,255,.78); }
+.contact-text{ margin-top: 4px;}
 
 /* Footer */
 .site-footer{
@@ -777,4 +776,104 @@ figure {
   }
 }
 
+/* ===== Light theme overrides ===== */
 
+.site-header{
+  background: rgba(246,248,252,.72);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-nav a{
+  color: var(--muted);
+}
+.site-nav a:hover{
+  color: var(--text);
+  background: rgba(15,23,42,.06);
+}
+.site-nav a.active{
+  background: rgba(225,29,72,.10);
+  border: 1px solid rgba(225,29,72,.18);
+}
+
+/* Cards sáng */
+.card, .toc-card{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Các khối nền “đen” chuyển sang sáng */
+.media, .callout, .contact-item, .accordion details, .table-wrap{
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+}
+
+/* Badge hero sáng */
+.hero-badge{
+  background: rgba(255,255,255,.75);
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+/* Text trong hero khi nền ảnh vẫn tối */
+.hero-date, .hero-subtitle{
+  color: rgba(0, 0, 0, 0.88);
+}
+
+/* Nếu bạn muốn hero sáng hơn (ít tối) */
+.hero-bg{
+  background:
+    linear-gradient(to bottom, rgba(255,255,255,.25), rgba(246,248,252,.92)),
+    url("/images/overview.jpg") center/cover no-repeat;
+  filter: saturate(1.05) contrast(1.02);
+}
+
+/* Footer sáng */
+.site-footer{
+  background: rgba(255,255,255,.72);
+  border-top: 1px solid var(--line);
+}
+
+/* Back to top sáng */
+.backtop{
+  background: rgba(255,255,255,.75);
+  border: 1px solid var(--line);
+  color: rgba(15,23,42,.88);
+}
+
+/* Thiết lập cho từng dòng list */
+.checklist li {
+  display: flex;          /* Dùng flex để icon và chữ nằm ngang hàng */
+  align-items: flex-start; /* Căn icon lên trên cùng, không bị rơi xuống giữa */
+  justify-content: flex-start; /* QUAN TRỌNG: Sửa lỗi bị dãn cách xa nhau */
+  gap: 12px;              /* Khoảng cách giữa Icon và khối chữ */
+  margin-bottom: 12px;    /* Khoảng cách giữa các mục */
+}
+
+/* Cố định kích thước Icon để không bị méo */
+.checklist li i {
+  width: 20px;
+  margin-top: 4px; /* Căn chỉnh lại icon một chút cho khớp với dòng đầu tiên */
+  flex-shrink: 0;  /* Ngăn icon bị co lại khi màn hình bé */
+  color: var(--primary-color, #d32f2f); /* Thêm màu cho icon nếu cần */
+}
+
+/* Khối chứa nội dung chữ */
+.checklist-content {
+  display: flex;
+  flex-direction: column; /* QUAN TRỌNG: Xếp Tiêu đề và Nội dung theo chiều dọc */
+}
+
+/* Định dạng Tiêu đề (VD: Tên thường gọi:) */
+.checklist-content .label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+/* Định dạng Nội dung (VD: Đền Bà) */
+.checklist-content .value {
+  font-size: 1rem;
+  color: #000;
+  line-height: 1.4;
+}
