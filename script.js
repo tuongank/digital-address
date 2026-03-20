@@ -1,6 +1,15 @@
 // Mobile nav toggle
 const toggleBtn = document.querySelector(".nav-toggle");
 const nav = document.querySelector("#site-nav");
+const header = document.querySelector(".site-header");
+
+const syncHeaderHeight = () => {
+  if (!header) return;
+  document.documentElement.style.setProperty("--header-height", `${header.offsetHeight}px`);
+};
+
+syncHeaderHeight();
+window.addEventListener("resize", syncHeaderHeight);
 
 if (toggleBtn && nav) {
   toggleBtn.addEventListener("click", () => {
@@ -14,6 +23,33 @@ if (toggleBtn && nav) {
       nav.classList.remove("open");
       toggleBtn.setAttribute("aria-expanded", "false");
     });
+  });
+}
+
+// TOC drawer toggle
+const tocToggle = document.getElementById("tocToggle");
+const tocDrawer = document.getElementById("tocDrawer");
+const tocOverlay = document.getElementById("tocOverlay");
+
+const setTocOpen = (isOpen) => {
+  if (!tocDrawer || !tocToggle || !tocOverlay) return;
+  tocDrawer.classList.toggle("open", isOpen);
+  tocOverlay.classList.toggle("show", isOpen);
+  tocToggle.setAttribute("aria-expanded", String(isOpen));
+  tocDrawer.setAttribute("aria-hidden", String(!isOpen));
+  tocOverlay.setAttribute("aria-hidden", String(!isOpen));
+  document.body.style.overflow = isOpen ? "hidden" : "";
+};
+
+if (tocToggle && tocDrawer && tocOverlay) {
+  tocToggle.addEventListener("click", () => {
+    setTocOpen(!tocDrawer.classList.contains("open"));
+  });
+
+  tocOverlay.addEventListener("click", () => setTocOpen(false));
+
+  tocDrawer.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setTocOpen(false));
   });
 }
 
@@ -68,6 +104,7 @@ if (lightbox) {
 }
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeLightbox();
+  if (e.key === "Escape") setTocOpen(false);
 });
 
 // Scrollspy for nav + toc
@@ -100,3 +137,29 @@ const spy = new IntersectionObserver((entries) => {
 });
 
 sections.forEach(sec => spy.observe(sec));
+
+
+// --- Custom Audio Player ---
+const ttsAudio = document.getElementById('ttsAudio');
+const btnPlayAudio = document.getElementById('btnPlayAudio');
+
+if (btnPlayAudio && ttsAudio) {
+  btnPlayAudio.addEventListener('click', () => {
+    if (ttsAudio.paused) {
+      // Bắt lỗi khi không có file audio hoặc không play được
+      ttsAudio.play().then(() => {
+        btnPlayAudio.innerHTML = '<i class="fa-solid fa-pause"></i> Tạm dừng';
+      }).catch(err => {
+        console.error("Audio play error:", err);
+        alert("Không thể phát file âm thanh (kiểm tra lại tên file audio/den-ba.mp3).");
+      });
+    } else {
+      ttsAudio.pause();
+      btnPlayAudio.innerHTML = '<i class="fa-solid fa-play"></i> Nghe thuyết minh';
+    }
+  });
+
+  ttsAudio.addEventListener('ended', () => {
+    btnPlayAudio.innerHTML = '<i class="fa-solid fa-play"></i> Nghe thuyết minh';
+  });
+}

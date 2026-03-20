@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,8 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
+    rel="stylesheet" />
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -23,25 +23,21 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
-
   <!-- HEADER -->
   <header class="site-header" id="top">
     <div class="container header-inner">
       <div class="brand">
-        <img
-          src="https://cdn.haitrieu.com/wp-content/uploads/2021/11/Logo-Doan-Thanh-NIen-Cong-San-Ho-Chi-Minh-1.png"
-          alt="Logo Đoàn TNCS Hồ Chí Minh"
-          class="brand-logo"
-        />
+        <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/11/Logo-Doan-Thanh-NIen-Cong-San-Ho-Chi-Minh-1.png"
+          alt="Logo Đoàn TNCS Hồ Chí Minh" class="brand-logo" />
         <div class="brand-text">
           <p class="brand-kicker">Cổng thông tin di tích</p>
           <h2 class="brand-title">Chi đoàn Thanh niên Xuân Lai</h2>
         </div>
       </div>
 
-      <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false" aria-controls="site-nav">
-        <span></span><span></span><span></span>
+      <button class="toc-toggle" id="tocToggle" aria-label="Mở mục lục" aria-expanded="false" aria-controls="tocDrawer">
+        <i class="fa-solid fa-list"></i>
+        <span>Mục lục</span>
       </button>
 
       <nav class="site-nav" id="site-nav">
@@ -63,6 +59,8 @@
       <p class="hero-subtitle">
         Nơi hội tụ giá trị tín ngưỡng – lịch sử – cộng đồng, gắn với tục <b>Kéo mỏ </b> được UNESCO vinh danh.
       </p>
+
+
 
       <div class="hero-stats">
         <div class="stat">
@@ -99,6 +97,13 @@
         <a class="btn primary" href="#main"><i class="fa-solid fa-book-open"></i> Khám phá nội dung</a>
         <a class="btn ghost" href="#divat"><i class="fa-solid fa-scroll"></i> Xem di vật tiêu biểu</a>
       </div>
+      <div class="tts-inline" aria-label="Trình phát thuyết minh">
+        <audio id="ttsAudio" src="images/text-to-speech.mp3" preload="none"></audio>
+        <button type="button" class="btn primary" id="btnPlayAudio" aria-label="Nghe thuyết minh"
+          style="margin: 0; min-width: 200px; justify-content: center;">
+          <i class="fa-solid fa-play"></i> Nghe thuyết minh
+        </button>
+      </div>
     </div>
 
     <div class="hero-wave" aria-hidden="true"></div>
@@ -106,624 +111,653 @@
 
   <!-- MAIN -->
   <main id="main" class="page">
-  <div class="container page-grid">
-    <!-- TOC -->
-    <aside class="toc" aria-label="Mục lục">
-      <div class="toc-card">
-        <div class="toc-head">
-          <p class="toc-title"><i class="fa-solid fa-list"></i> Mục lục</p>
-          <p class="toc-sub">Bấm để nhảy đến phần bạn muốn đọc</p>
+    <div class="container page-grid">
+      <!-- TOC -->
+      <aside class="toc" id="tocDrawer" aria-label="Mục lục" aria-hidden="true">
+        <div class="toc-card">
+          <div class="toc-head">
+            <p class="toc-title"><i class="fa-solid fa-list"></i> Mục lục</p>
+            <p class="toc-sub">Bấm để nhảy đến phần bạn muốn đọc</p>
+          </div>
+
+          <nav class="toc-links" id="toc-links">
+            <a href="#tongquan" data-spy> Tổng quan chung</a>
+            <a href="#ynghia" data-spy> Lịch sử & Thần tích</a>
+            <a href="#phivatthe" data-spy> Lễ hội & Kéo mỏ</a>
+            <a href="#kientruc" data-spy> Kiến trúc & Nội thất</a>
+            <a href="#phaply" data-spy> Quản lý & Bảo vệ</a>
+            <a href="#thongtin" data-spy> I. Thông tin chung</a>
+            <a href="#lichsu" data-spy> II. Dấu mốc lịch sử</a>
+            <a href="#lehoi" data-spy> III. Nghi lễ – Lễ hội</a>
+            <a href="#divat" data-spy> IV. Di vật tiêu biểu</a>
+          </nav>
+
+          <div class="toc-note">
+            <i class="fa-regular fa-lightbulb"></i>
+            <span>Mẹo: bạn có thể click ảnh để xem phóng to.</span>
+          </div>
         </div>
+      </aside>
 
-        <nav class="toc-links" id="toc-links">
-          <a href="#tongquan" data-spy> Tổng quan chung</a>
-          <a href="#ynghia" data-spy> Lịch sử & Thần tích</a>
-          <a href="#phivatthe" data-spy> Lễ hội & Kéo mỏ</a>
-          <a href="#kientruc" data-spy> Kiến trúc & Nội thất</a>
-          <a href="#phaply" data-spy> Quản lý & Bảo vệ</a>
-          <a href="#thongtin" data-spy> I. Thông tin chung</a>
-          <a href="#lichsu" data-spy> II. Dấu mốc lịch sử</a>
-          <a href="#lehoi" data-spy> III. Nghi lễ – Lễ hội</a>
-          <a href="#divat" data-spy> IV. Di vật tiêu biểu</a>
-        </nav>
+      <!-- CONTENT -->
+      <article class="content">
+        <!-- TỔNG QUAN -->
+        <section class="section card" id="tongquan">
+          <header class="section-head">
+            <h2 class="section-title">Tổng quan chung</h2>
+            <p class="section-desc">
+              Di tích tín ngưỡng thờ Thần của cộng đồng thôn Xuân Lai, mang giá trị lịch sử – văn hoá – kiến trúc nghệ
+              thuật.
+            </p>
+          </header>
 
-        <div class="toc-note">
-          <i class="fa-regular fa-lightbulb"></i>
-          <span>Mẹo: bạn có thể click ảnh để xem phóng to.</span>
-        </div>
-      </div>
-    </aside>
+          <div class="media-grid">
+            <figure class="media" data-lightbox>
+              <!-- TODO: Thay ảnh tổng quan -->
+              <img src="/images/overview.jpg" alt="Tổng quan không gian Đền Bà" loading="lazy" />
+              <figcaption>Tổng quan không gian Đền Bà – điểm sinh hoạt tín ngưỡng và văn hoá cộng đồng.</figcaption>
+            </figure>
 
-    <!-- CONTENT -->
-    <article class="content">
-      <!-- TỔNG QUAN -->
-      <section class="section card" id="tongquan">
-        <header class="section-head">
-          <h2 class="section-title">Tổng quan chung</h2>
-          <p class="section-desc">
-            Di tích tín ngưỡng thờ Thần của cộng đồng thôn Xuân Lai, mang giá trị lịch sử – văn hoá – kiến trúc nghệ thuật.
+            <div class="callout">
+              <p class="callout-title"><i class="fa-solid fa-star"></i> Điểm nhấn</p>
+              <ul class="checklist">
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Tên thường gọi:</span>
+                    <b class="value">Đền Bà (Đền Vua Bà)</b>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Loại hình:</span>
+                    <b class="value">Di tích Lịch sử & Kiến trúc Nghệ thuật</b>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Chức năng:</span>
+                    <span class="value">Trung tâm sinh hoạt tâm linh – hội họp cộng đồng.</span>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Nổi bật:</span>
+                    <span class="value">Lễ hội mùng 4 tháng Giêng và tục <b>Kéo mỏ</b>.</span>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Lưu giữ di vật niên đại:</span>
+                    <b class="value">1866, 1910, 1924…</b>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <p>
+            Đền Bà (còn gọi là Đền Vua Bà) là di tích tín ngưỡng thờ Thần của cộng đồng cư dân thôn Xuân Lai, xã Xuân
+            Thu,
+            huyện Sóc Sơn, thành phố Hà Nội. Không chỉ là nơi phụng thờ và tưởng niệm vị thần theo tín ngưỡng dân gian,
+            đền còn là không gian hội họp, tổ chức sinh hoạt văn hoá tinh thần, góp phần gắn kết cộng đồng qua nhiều thế
+            hệ.
           </p>
-        </header>
+        </section>
 
-        <div class="media-grid">
-          <figure class="media" data-lightbox>
-            <!-- TODO: Thay ảnh tổng quan -->
-            <img
-              src="/images/overview.jpg"
-              alt="Tổng quan không gian Đền Bà"
-              loading="lazy"
-            />
-            <figcaption>Tổng quan không gian Đền Bà – điểm sinh hoạt tín ngưỡng và văn hoá cộng đồng.</figcaption>
-          </figure>
+        <!-- LỊCH SỬ & THẦN TÍCH -->
+        <section class="section card" id="ynghia">
+          <header class="section-head">
+            <h2 class="section-title">Lịch sử & Thần tích</h2>
+            <p class="section-desc">Bối cảnh vùng đất, truyền thống lịch sử và thần tích vị thần được thờ tại di tích.
+            </p>
+          </header>
 
-          <div class="callout">
-            <p class="callout-title"><i class="fa-solid fa-star"></i> Điểm nhấn</p>
-            <ul class="checklist">
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Tên thường gọi:</span>
-                  <b class="value">Đền Bà (Đền Vua Bà)</b>
-                </div>
-              </li>
+          <p>
+            Xuân Lai là một trong những làng cổ thuộc xã Xuân Thu, nằm ở vị trí giao thoa giữa vùng trung du – bán sơn
+            địa
+            và đồng bằng châu thổ Sông Hồng. Trải qua lịch sử, nhân dân địa phương vừa chống chọi thiên nhiên,
+            vừa tham gia tích cực vào công cuộc giữ nước – giữ làng, tạo nên truyền thống văn hoá lâu đời với hệ thống
+            đình, đền, chùa trong vùng.
+          </p>
 
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Loại hình:</span>
-                  <b class="value">Di tích Lịch sử & Kiến trúc Nghệ thuật</b>
-                </div>
-              </li>
+          <p>
+            Theo thần tích – thần sắc địa phương, Đền Bà thờ vị thần <b>Đống Nương Chế Thắng Hòa Diệu phu nhân</b>.
+            Thần tích tóm lược: thời Hùng Tuấn Vương, tướng Cao Sơn đi bình Thục, dừng quân tại vùng Xuân Lai và được
+            thần nhân báo mộng,
+            “âm phù” lập công. Vua chuẩn cho lập đền thờ và lưu truyền thờ phụng đến nay. Trải các triều, vị thần được
+            ban sắc phong,
+            ghi nhận công lao “hộ quốc tý dân”, nhiều lần hiển linh ứng nghiệm.
+          </p>
 
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Chức năng:</span>
-                  <span class="value">Trung tâm sinh hoạt tâm linh – hội họp cộng đồng.</span>
-                </div>
-              </li>
+          <div class="timeline">
+            <div class="t-item">
+              <div class="t-dot"></div>
+              <div class="t-content">
+                <p class="t-title">Truyền thống lịch sử vùng Xuân Thu</p>
+                <p class="t-text">
+                  Khu vực có vị trí chiến lược; nhân dân tham gia các cuộc kháng chiến, góp sức người – sức của bảo vệ
+                  quê hương.
+                </p>
+              </div>
+            </div>
 
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Nổi bật:</span>
-                  <span class="value">Lễ hội mùng 4 tháng Giêng và tục <b>Kéo mỏ</b>.</span>
-                </div>
-              </li>
-              
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Lưu giữ di vật niên đại:</span>
-                  <b class="value">1866, 1910, 1924…</b>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+            <div class="t-item">
+              <div class="t-dot"></div>
+              <div class="t-content">
+                <p class="t-title">Cuối TK XIX – đầu TK XX</p>
+                <p class="t-text">
+                  Xuân Thu là nơi đóng quân, luyện tập và tụ nghĩa của nghĩa quân Hoàng Hoa Thám; người dân ủng hộ lương
+                  thực, vũ khí.
+                </p>
+              </div>
+            </div>
 
-        <p>
-          Đền Bà (còn gọi là Đền Vua Bà) là di tích tín ngưỡng thờ Thần của cộng đồng cư dân thôn Xuân Lai, xã Xuân Thu,
-          huyện Sóc Sơn, thành phố Hà Nội. Không chỉ là nơi phụng thờ và tưởng niệm vị thần theo tín ngưỡng dân gian,
-          đền còn là không gian hội họp, tổ chức sinh hoạt văn hoá tinh thần, góp phần gắn kết cộng đồng qua nhiều thế hệ.
-        </p>
-      </section>
-
-      <!-- LỊCH SỬ & THẦN TÍCH -->
-      <section class="section card" id="ynghia">
-        <header class="section-head">
-          <h2 class="section-title">Lịch sử & Thần tích</h2>
-          <p class="section-desc">Bối cảnh vùng đất, truyền thống lịch sử và thần tích vị thần được thờ tại di tích.</p>
-        </header>
-
-        <p>
-          Xuân Lai là một trong những làng cổ thuộc xã Xuân Thu, nằm ở vị trí giao thoa giữa vùng trung du – bán sơn địa
-          và đồng bằng châu thổ Sông Hồng. Trải qua lịch sử, nhân dân địa phương vừa chống chọi thiên nhiên,
-          vừa tham gia tích cực vào công cuộc giữ nước – giữ làng, tạo nên truyền thống văn hoá lâu đời với hệ thống đình, đền, chùa trong vùng.
-        </p>
-
-        <p>
-          Theo thần tích – thần sắc địa phương, Đền Bà thờ vị thần <b>Đống Nương Chế Thắng Hòa Diệu phu nhân</b>.
-          Thần tích tóm lược: thời Hùng Tuấn Vương, tướng Cao Sơn đi bình Thục, dừng quân tại vùng Xuân Lai và được thần nhân báo mộng,
-          “âm phù” lập công. Vua chuẩn cho lập đền thờ và lưu truyền thờ phụng đến nay. Trải các triều, vị thần được ban sắc phong,
-          ghi nhận công lao “hộ quốc tý dân”, nhiều lần hiển linh ứng nghiệm.
-        </p>
-
-        <div class="timeline">
-          <div class="t-item">
-            <div class="t-dot"></div>
-            <div class="t-content">
-              <p class="t-title">Truyền thống lịch sử vùng Xuân Thu</p>
-              <p class="t-text">
-                Khu vực có vị trí chiến lược; nhân dân tham gia các cuộc kháng chiến, góp sức người – sức của bảo vệ quê hương.
-              </p>
+            <div class="t-item">
+              <div class="t-dot"></div>
+              <div class="t-content">
+                <p class="t-title">1945 – 1972</p>
+                <p class="t-text">
+                  Sau Cách mạng tháng 8, địa phương củng cố lực lượng; trong kháng chiến, đền từng là nơi chứa lương
+                  thực, lớp học,
+                  hội họp và có giai đoạn phục vụ nhiệm vụ quân giới.
+                </p>
+              </div>
             </div>
           </div>
 
-          <div class="t-item">
-            <div class="t-dot"></div>
-            <div class="t-content">
-              <p class="t-title">Cuối TK XIX – đầu TK XX</p>
-              <p class="t-text">
-                Xuân Thu là nơi đóng quân, luyện tập và tụ nghĩa của nghĩa quân Hoàng Hoa Thám; người dân ủng hộ lương thực, vũ khí.
-              </p>
+          <div class="media-grid two">
+            <figure class="media" data-lightbox>
+              <!-- TODO: Thay ảnh/scan sắc phong hoặc trang tư liệu -->
+              <img src="/images/tu-lieu-han-nom.JPG" alt="Tư liệu sắc phong/hoành phi" loading="lazy" />
+              <figcaption>Tư liệu Hán Nôm và sắc phong là nguồn tư liệu quý khẳng định lịch sử thờ phụng tại di tích.
+              </figcaption>
+            </figure>
+
+            <div class="callout">
+              <p class="callout-title"><i class="fa-solid fa-scroll"></i> Tư liệu tiêu biểu</p>
+              <ul class="checklist">
+
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Chuông đồng:</span>
+                    <span class="value">Niên hiệu <b>Tự Đức 19 (1866)</b>.</span>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Hoành phi:</span>
+                    <span class="value">Khắc chữ <b>“Kiến thiên muội”</b>, niên hiệu <b>Duy Tân (1910)</b>.</span>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Sắc phong:</span>
+                    <span class="value">Niên hiệu <b>Khải Định 9 (1924)</b> cho vị thần thờ tại đền.</span>
+                  </div>
+                </li>
+
+              </ul>
             </div>
-          </div>
+        </section>
 
-          <div class="t-item">
-            <div class="t-dot"></div>
-            <div class="t-content">
-              <p class="t-title">1945 – 1972</p>
-              <p class="t-text">
-                Sau Cách mạng tháng 8, địa phương củng cố lực lượng; trong kháng chiến, đền từng là nơi chứa lương thực, lớp học,
-                hội họp và có giai đoạn phục vụ nhiệm vụ quân giới.
-              </p>
-            </div>
-          </div>
-        </div>
+        <!-- LỄ HỘI & KÉO MỎ -->
+        <section class="section card" id="phivatthe">
+          <header class="section-head">
+            <h2 class="section-title">Lễ hội</h2>
+            <p class="section-desc">Sinh hoạt tín ngưỡng – trò diễn nghi lễ đặc sắc của làng Xuân Lai.</p>
+          </header>
 
-        <div class="media-grid two">
-          <figure class="media" data-lightbox>
-            <!-- TODO: Thay ảnh/scan sắc phong hoặc trang tư liệu -->
-            <img src="/images/tu-lieu-han-nom.JPG" alt="Tư liệu sắc phong/hoành phi" loading="lazy" />
-            <figcaption>Tư liệu Hán Nôm và sắc phong là nguồn tư liệu quý khẳng định lịch sử thờ phụng tại di tích.</figcaption>
-          </figure>
-
-          <div class="callout">
-            <p class="callout-title"><i class="fa-solid fa-scroll"></i> Tư liệu tiêu biểu</p>
-            <ul class="checklist">
-              
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Chuông đồng:</span>
-                  <span class="value">Niên hiệu <b>Tự Đức 19 (1866)</b>.</span>
-                </div>
-              </li>
-
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Hoành phi:</span>
-                  <span class="value">Khắc chữ <b>“Kiến thiên muội”</b>, niên hiệu <b>Duy Tân (1910)</b>.</span>
-                </div>
-              </li>
-
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Sắc phong:</span>
-                  <span class="value">Niên hiệu <b>Khải Định 9 (1924)</b> cho vị thần thờ tại đền.</span>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-      </section>
-
-      <!-- LỄ HỘI & KÉO MỎ -->
-      <section class="section card" id="phivatthe">
-        <header class="section-head">
-          <h2 class="section-title">Lễ hội & Kéo mỏ</h2>
-          <p class="section-desc">Sinh hoạt tín ngưỡng – trò diễn nghi lễ đặc sắc của làng Xuân Lai.</p>
-        </header>
-
-        <p>
-          Hàng năm, tại Đền Bà diễn ra các hoạt động tín ngưỡng như tế lễ, dâng hương.
-          Đặc biệt, lễ hội truyền thống được tổ chức vào <b>ngày mùng 4 tháng Giêng âm lịch</b>.
-          Trong ngày hội, ngoài phần lễ còn có phần hội với nhiều trò diễn dân gian; nổi bật nhất là
-          <b>tục “Kéo mỏ”</b> – một trò diễn theo phong cách nghi lễ, tổ chức trang nghiêm, gắn với ước nguyện
-          quốc thái dân an, mưa thuận gió hòa, mùa màng bội thu và đoàn kết cộng đồng.
-        </p>
-
-        <div class="pill-grid">
-          <div class="pill"><i class="fa-solid fa-heart"></i> Cầu phúc – cầu an</div>
-          <div class="pill"><i class="fa-solid fa-seedling"></i> Biểu tượng mùa màng</div>
-          <div class="pill"><i class="fa-solid fa-handshake"></i> Đoàn kết cộng đồng</div>
-          <div class="pill"><i class="fa-solid fa-masks-theater"></i> Trò diễn hầu Thánh</div>
-        </div>
-
-        <div class="media-grid two">
+          <p>
+            Hàng năm, tại Đền Bà diễn ra các hoạt động tín ngưỡng như tế lễ, dâng hương.
+            Đặc biệt, lễ hội truyền thống được tổ chức vào <b>ngày mùng 4 tháng Giêng âm lịch</b>.
+            Trong ngày hội, ngoài phần lễ còn có phần hội với nhiều trò diễn dân gian; nổi bật nhất là
+            <b>tục “Kéo mỏ”</b> – một trò diễn theo phong cách nghi lễ, tổ chức trang nghiêm, gắn với ước nguyện
+            quốc thái dân an, mưa thuận gió hòa, mùa màng bội thu và đoàn kết cộng đồng.
+          </p>
           <figure class="media" data-lightbox>
             <!-- TODO: Thay ảnh kéo mỏ -->
-            <img src="/images/keo-mo1.jpeg" alt="Nghi lễ kéo mỏ tại Đền Bà" loading="lazy">
-            <figcaption>Kéo mỏ là trò diễn nghi lễ cộng đồng, thu hút đông đảo nhân dân tham gia.</figcaption>
+            <img src="/images/anh-thoi-com.jpg" alt="Nghi lễ kéo mỏ tại Đền Bà" loading="lazy">
+            <figcaption>Các đội thi nhau trong trò chơi Thổi cơm.</figcaption>
           </figure>
-
-          <div class="callout">
-            <p class="callout-title"><i class="fa-solid fa-scroll"></i> Chuẩn bị Kéo mỏ (tóm tắt)</p>
-            <ul class="checklist">
-              
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Tiêu chuẩn tre:</span>
-                  <span class="value">Chọn tre bánh tẻ xanh biếc, thưa đốt, dài <b>7–8m</b>.</span>
-                </div>
-              </li>
-
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Thời gian thực hiện:</span>
-                  <span class="value">Làm mỏ dịp <b>29–30 Tết</b>, trình lễ xin phép trước khi dùng.</span>
-                </div>
-              </li>
-
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Người tham gia:</span>
-                  <span class="value">Trai đinh trong làng, khoảng <b>18–35 tuổi</b>, chia đội theo xóm.</span>
-                </div>
-              </li>
-
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Quy ước thi đấu:</span>
-                  <span class="value">Thi đấu theo hiệp truyền thống; kết quả mang ý nghĩa tâm linh.</span>
-                </div>
-              </li>
-
-            </ul>
+          <div class="pill-grid">
+            <div class="pill"><i class="fa-solid fa-heart"></i> Cầu phúc – cầu an</div>
+            <div class="pill"><i class="fa-solid fa-seedling"></i> Biểu tượng mùa màng</div>
+            <div class="pill"><i class="fa-solid fa-handshake"></i> Đoàn kết cộng đồng</div>
+            <div class="pill"><i class="fa-solid fa-masks-theater"></i> Trò diễn hầu Thánh</div>
           </div>
-        </div>
 
-        <p>
-          Tục “Kéo mỏ thôn Xuân Lai” đã được ghi nhận trong danh mục <b>Di sản văn hóa phi vật thể cấp quốc gia</b>
-          (theo Quyết định 4205/QĐ-BVHTTDL ngày 19/12/2014 của Bộ Văn hóa, Thể thao và Du lịch).
-        </p>
-      </section>
+          <div class="media-grid two">
+            <figure class="media" data-lightbox>
+              <!-- TODO: Thay ảnh kéo mỏ -->
+              <img src="/images/keo-mo1.jpeg" alt="Nghi lễ kéo mỏ tại Đền Bà" loading="lazy">
+              <figcaption>Kéo mỏ là trò diễn nghi lễ cộng đồng, thu hút đông đảo nhân dân tham gia.</figcaption>
+            </figure>
 
-      <!-- KIẾN TRÚC & NỘI THẤT -->
-      <section class="section card" id="kientruc">
-        <header class="section-head">
-          <h2 class="section-title">Kiến trúc & Nội thất</h2>
-          <p class="section-desc">Bố cục chữ Đinh (J), hệ khung gỗ truyền thống và nghệ thuật trang trí thời Nguyễn.</p>
-        </header>
+            <div class="callout">
+              <p class="callout-title"><i class="fa-solid fa-scroll"></i> Chuẩn bị Kéo mỏ (tóm tắt)</p>
+              <ul class="checklist">
 
-        <p>
-          Đền Bà hiện tọa lạc trên khu đất cao, tương đối rộng và tách biệt giữa quần thể dân cư thôn.
-          Tổng thể gồm: <b>Nghi môn</b>, <b>sân đền</b>, hai dãy <b>tả – hữu mạc</b>, và kiến trúc chính theo lối chữ <b>Đinh (J)</b>
-          bao gồm <b>Tiền tế</b> và <b>Hậu cung</b>. Nghệ thuật trang trí tập trung ở kẻ hiên và bộ vì trung tâm với các đề tài
-          hổ phù, lá lật, rồng… mang đậm phong cách nghệ thuật thời Nguyễn.
-        </p>
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Tiêu chuẩn tre:</span>
+                    <span class="value">Chọn tre bánh tẻ xanh biếc, thưa đốt, dài <b>7–8m</b>.</span>
+                  </div>
+                </li>
 
-        <div class="media-grid two">
-          <figure class="media" data-lightbox>
-            <img src="/images/nghi-mon.JPG" alt="Nghi môn Đền Bà" loading="lazy">
-            <figcaption>Nghi môn kiểu tứ trụ tạo 3 cửa; sân đền lát gạch kéo suốt chiều dài.</figcaption>
-          </figure>
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Thời gian thực hiện:</span>
+                    <span class="value">Làm mỏ dịp <b>29–30 Tết</b>, trình lễ xin phép trước khi dùng.</span>
+                  </div>
+                </li>
 
-          <figure class="media" data-lightbox>
-            <img src="/images/cham-khac.png" alt="Không gian Tiền tế – Hậu cung" loading="lazy">
-            <figcaption>Tiền tế – Hậu cung với hệ khung gỗ truyền thống và trang trí chạm khắc.</figcaption>
-          </figure>
-        </div>
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Người tham gia:</span>
+                    <span class="value">Trai đinh trong làng, khoảng <b>18–35 tuổi</b>, chia đội theo xóm.</span>
+                  </div>
+                </li>
 
-        <div class="accordion">
-          <details open>
-            <summary><i class="fa-solid fa-archway"></i> Nghi môn & Sân đền</summary>
-            <div class="details-body">
-              <p>
-                Nghi môn xây kiểu tứ trụ liền tường bao tạo 3 cửa; thân trụ tạo khung soi gờ kẻ chỉ.
-                Sân đền rộng, lát gạch, kéo dài theo trục đền.
-              </p>
-            </div>
-          </details>
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Quy ước thi đấu:</span>
+                    <span class="value">Thi đấu theo hiệp truyền thống; kết quả mang ý nghĩa tâm linh.</span>
+                  </div>
+                </li>
 
-          <details open>
-            <summary><i class="fa-solid fa-people-roof"></i> Tả – Hữu mạc</summary>
-            <div class="details-body">
-              <p>
-                Tả hữu mạc nằm phía trước hai bên đền, mỗi bên 5 gian; là nơi đặt đồ lễ, hội họp và sinh hoạt văn hoá cộng đồng
-                trong những ngày lễ hội.
-              </p>
-            </div>
-          </details>
-
-          <details open>
-            <summary><i class="fa-solid fa-landmark"></i> Tiền tế & Hậu cung</summary>
-            <div class="details-body">
-              <ul class="no-dot">
-                <li><b>Tiền tế:</b> 5 gian 2 dĩ, quay hướng Đông Nam; hệ vì gỗ đa dạng, cột đặt trên chân đá tảng.</li>
-                <li><b>Hậu cung:</b> 3 gian dọc nối liền Tiền tế; bên trong có khám thờ, đặt ngai – tượng thờ và đồ thờ tự.</li>
-                <li><b>Trang trí:</b> đề tài hổ phù, rồng chầu, lá lật, văn xoắn… đặc trưng nghệ thuật thời Nguyễn.</li>
               </ul>
             </div>
-          </details>
-        </div>
-
-        <figure class="media" data-lightbox>
-          <!-- TODO: Thay ảnh nội thất/hương án/cửa võng -->
-          <img src="/images/thang-huong.png" alt="Bài trí nội thất Tiền tế – Hậu cung" loading="lazy">
-          <figcaption>
-            Bài trí nội thất gồm hương án, cửa võng, hoành phi, câu đối và hệ đồ thờ tự – nghi trượng.
-          </figcaption>
-        </figure>
-      </section>
-
-      <!-- QUẢN LÝ – PHÁP LÝ – BẢO VỆ -->
-      <section class="section card" id="phaply">
-        <header class="section-head">
-          <h2 class="section-title">Quản lý & Bảo vệ di tích</h2>
-          <p class="section-desc">Thực trạng quản lý, diện tích khoanh vùng và định hướng bảo tồn – phát huy.</p>
-        </header>
-
-        <p>
-          Di tích Đền Bà thuộc thẩm quyền quản lý trực tiếp, toàn diện của UBND huyện Sóc Sơn và UBND xã Xuân Thu.
-          Hiện nay, di tích được chính quyền và nhân dân địa phương trông coi, bảo vệ; đã thành lập tiểu ban quản lý di tích
-          và cử người thủ từ hương đăng thờ cúng thường xuyên.
-        </p>
-
-        <div class="media-grid">
-          <div class="callout">
-            <p class="callout-title"><i class="fa-solid fa-shield"></i> Thực trạng bảo vệ</p>
-            <ul class="checklist">
-              
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Quy hoạch & Ranh giới:</span>
-                  <span class="value">Khuôn viên đã có tường bao, ranh giới rõ ràng, không bị lấn chiếm.</span>
-                </div>
-              </li>
-
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Diện tích khoanh vùng:</span>
-                  <span class="value">Theo bản đồ đo vẽ hiện trạng năm 2014 là <b>1.174,1 m²</b>.</span>
-                </div>
-              </li>
-
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Nguồn lực tu bổ:</span>
-                  <span class="value">Chủ yếu dựa vào công đức và sự đóng góp của nhân dân địa phương.</span>
-                </div>
-              </li>
-
-              <li>
-                <i class="fa-solid fa-check"></i>
-                <div class="checklist-content">
-                  <span class="label">Định hướng chuyên môn:</span>
-                  <span class="value">Cần dịch nghĩa Hán Nôm và kiểm kê, giám định khoa học hiện vật.</span>
-                </div>
-              </li>
-
-            </ul>
           </div>
-        </div>
 
-        <p>
-          Định hướng bảo tồn tập trung vào: kiện toàn ban quản lý, quản lý xây dựng khu vực liền kề để bảo đảm hài hoà cảnh quan,
-          khoanh vùng bảo vệ rõ ràng; ưu tiên tu bổ theo quy hoạch tổng thể, chống mối mọt, sửa mái chống dột; đồng thời phát huy giá trị
-          thông qua biển chỉ dẫn, ấn phẩm giới thiệu, hoạt động giáo dục truyền thống và phục dựng chọn lọc nghi thức lễ hội.
-        </p>
-        <figure class="media" data-lightbox>
+          <p>
+            Tục “Kéo mỏ thôn Xuân Lai” đã được ghi nhận trong danh mục <b>Di sản văn hóa phi vật thể cấp quốc gia</b>
+            (theo Quyết định 4205/QĐ-BVHTTDL ngày 19/12/2014 của Bộ Văn hóa, Thể thao và Du lịch).
+          </p>
+        </section>
+
+        <!-- KIẾN TRÚC & NỘI THẤT -->
+        <section class="section card" id="kientruc">
+          <header class="section-head">
+            <h2 class="section-title">Kiến trúc & Nội thất</h2>
+            <p class="section-desc">Bố cục chữ Đinh (J), hệ khung gỗ truyền thống và nghệ thuật trang trí thời Nguyễn.
+            </p>
+          </header>
+
+          <p>
+            Đền Bà hiện tọa lạc trên khu đất cao, tương đối rộng và tách biệt giữa quần thể dân cư thôn.
+            Tổng thể gồm: <b>Nghi môn</b>, <b>sân đền</b>, hai dãy <b>tả – hữu mạc</b>, và kiến trúc chính theo lối chữ
+            <b>Đinh (J)</b>
+            bao gồm <b>Tiền tế</b> và <b>Hậu cung</b>. Nghệ thuật trang trí tập trung ở kẻ hiên và bộ vì trung tâm với
+            các đề tài
+            hổ phù, lá lật, rồng… mang đậm phong cách nghệ thuật thời Nguyễn.
+          </p>
+
+          <div class="media-grid two">
+            <figure class="media" data-lightbox>
+              <img src="/images/nghi-mon.JPG" alt="Nghi môn Đền Bà" loading="lazy">
+              <figcaption>Nghi môn kiểu tứ trụ tạo 3 cửa; sân đền lát gạch kéo suốt chiều dài.</figcaption>
+            </figure>
+
+            <figure class="media" data-lightbox>
+              <img src="/images/cham-khac.png" alt="Không gian Tiền tế – Hậu cung" loading="lazy">
+              <figcaption>Tiền tế – Hậu cung với hệ khung gỗ truyền thống và trang trí chạm khắc.</figcaption>
+            </figure>
+          </div>
+
+          <div class="accordion">
+            <details open>
+              <summary><i class="fa-solid fa-archway"></i> Nghi môn & Sân đền</summary>
+              <div class="details-body">
+                <p>
+                  Nghi môn xây kiểu tứ trụ liền tường bao tạo 3 cửa; thân trụ tạo khung soi gờ kẻ chỉ.
+                  Sân đền rộng, lát gạch, kéo dài theo trục đền.
+                </p>
+              </div>
+            </details>
+
+            <details open>
+              <summary><i class="fa-solid fa-people-roof"></i> Tả – Hữu mạc</summary>
+              <div class="details-body">
+                <p>
+                  Tả hữu mạc nằm phía trước hai bên đền, mỗi bên 5 gian; là nơi đặt đồ lễ, hội họp và sinh hoạt văn hoá
+                  cộng đồng
+                  trong những ngày lễ hội.
+                </p>
+              </div>
+            </details>
+
+            <details open>
+              <summary><i class="fa-solid fa-landmark"></i> Tiền tế & Hậu cung</summary>
+              <div class="details-body">
+                <ul class="no-dot">
+                  <li><b>Tiền tế:</b> 5 gian 2 dĩ, quay hướng Đông Nam; hệ vì gỗ đa dạng, cột đặt trên chân đá tảng.
+                  </li>
+                  <li><b>Hậu cung:</b> 3 gian dọc nối liền Tiền tế; bên trong có khám thờ, đặt ngai – tượng thờ và đồ
+                    thờ tự.</li>
+                  <li><b>Trang trí:</b> đề tài hổ phù, rồng chầu, lá lật, văn xoắn… đặc trưng nghệ thuật thời Nguyễn.
+                  </li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <figure class="media" data-lightbox>
+            <!-- TODO: Thay ảnh nội thất/hương án/cửa võng -->
+            <img src="/images/thang-huong.png" alt="Bài trí nội thất Tiền tế – Hậu cung" loading="lazy">
+            <figcaption>
+              Bài trí nội thất gồm hương án, cửa võng, hoành phi, câu đối và hệ đồ thờ tự – nghi trượng.
+            </figcaption>
+          </figure>
+        </section>
+
+        <!-- QUẢN LÝ – PHÁP LÝ – BẢO VỆ -->
+        <section class="section card" id="phaply">
+          <header class="section-head">
+            <h2 class="section-title">Quản lý & Bảo vệ di tích</h2>
+            <p class="section-desc">Thực trạng quản lý, diện tích khoanh vùng và định hướng bảo tồn – phát huy.</p>
+          </header>
+
+          <p>
+            Di tích Đền Bà thuộc thẩm quyền quản lý trực tiếp, toàn diện của UBND huyện Sóc Sơn và UBND xã Xuân Thu.
+            Hiện nay, di tích được chính quyền và nhân dân địa phương trông coi, bảo vệ; đã thành lập tiểu ban quản lý
+            di tích
+            và cử người thủ từ hương đăng thờ cúng thường xuyên.
+          </p>
+
+          <div class="media-grid">
+            <div class="callout">
+              <p class="callout-title"><i class="fa-solid fa-shield"></i> Thực trạng bảo vệ</p>
+              <ul class="checklist">
+
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Quy hoạch & Ranh giới:</span>
+                    <span class="value">Khuôn viên đã có tường bao, ranh giới rõ ràng, không bị lấn chiếm.</span>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Diện tích khoanh vùng:</span>
+                    <span class="value">Theo bản đồ đo vẽ hiện trạng năm 2014 là <b>1.174,1 m²</b>.</span>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Nguồn lực tu bổ:</span>
+                    <span class="value">Chủ yếu dựa vào công đức và sự đóng góp của nhân dân địa phương.</span>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="fa-solid fa-check"></i>
+                  <div class="checklist-content">
+                    <span class="label">Định hướng chuyên môn:</span>
+                    <span class="value">Cần dịch nghĩa Hán Nôm và kiểm kê, giám định khoa học hiện vật.</span>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+
+          <p>
+            Định hướng bảo tồn tập trung vào: kiện toàn ban quản lý, quản lý xây dựng khu vực liền kề để bảo đảm hài hoà
+            cảnh quan,
+            khoanh vùng bảo vệ rõ ràng; ưu tiên tu bổ theo quy hoạch tổng thể, chống mối mọt, sửa mái chống dột; đồng
+            thời phát huy giá trị
+            thông qua biển chỉ dẫn, ấn phẩm giới thiệu, hoạt động giáo dục truyền thống và phục dựng chọn lọc nghi thức
+            lễ hội.
+          </p>
+          <figure class="media" data-lightbox>
             <img src="/images/den-ba-xua.jpg" alt="Không khí lễ hội tại Đền Bà" loading="lazy">
             <figcaption>Phía trước của Đền Bà trước khi được tu sửa</figcaption>
-        </figure>
-      </section>
+          </figure>
+        </section>
 
-      <!-- I. THÔNG TIN CHUNG -->
-      <section class="section card" id="thongtin">
-        <header class="section-head">
-          <h2 class="section-title">I. Thông tin chung và Địa vị pháp lý</h2>
-          <p class="section-desc">Tên gọi – vị trí – đường đi – phân loại di tích.</p>
-        </header>
+        <!-- I. THÔNG TIN CHUNG -->
+        <section class="section card" id="thongtin">
+          <header class="section-head">
+            <h2 class="section-title">I. Thông tin chung và Địa vị pháp lý</h2>
+            <p class="section-desc">Tên gọi – vị trí – đường đi – phân loại di tích.</p>
+          </header>
 
-        <div class="accordion">
-          <details open>
-            <summary><i class="fa-solid fa-id-card"></i> 1) Tên gọi</summary>
-            <div class="details-body">
-              <ul class="no-dot">
-                <li><b>Tên thường gọi:</b> Đền Bà.</li>
-                <li><b>Tên gọi khác:</b> Đền Vua Bà (do nhân dân tôn vị thần thờ là “Vua”).</li>
-              </ul>
+          <div class="accordion">
+            <details open>
+              <summary><i class="fa-solid fa-id-card"></i> 1) Tên gọi</summary>
+              <div class="details-body">
+                <ul class="no-dot">
+                  <li><b>Tên thường gọi:</b> Đền Bà.</li>
+                  <li><b>Tên gọi khác:</b> Đền Vua Bà (do nhân dân tôn vị thần thờ là “Vua”).</li>
+                </ul>
+              </div>
+            </details>
+
+            <details open>
+              <summary><i class="fa-solid fa-location-dot"></i> 2) Vị trí</summary>
+              <div class="details-body">
+                <ul class="no-dot">
+                  <li><b>Địa chỉ:</b> thôn Xuân Lai, xã Đa Phúc, TP. Hà Nội.</li>
+                  <li><b>Khoảng cách:</b> cách trung tâm Hà Nội khoảng 35km.</li>
+
+                </ul>
+              </div>
+            </details>
+
+            <details open>
+              <summary><i class="fa-solid fa-layer-group"></i> 3) Phân loại di tích</summary>
+              <div class="details-body">
+                <p>
+                  Đền Bà là di tích tín ngưỡng thờ Thần của cộng đồng cư dân làng xã,
+                  thuộc loại hình <b>Di tích Lịch sử</b> và <b>Kiến trúc – Nghệ thuật</b>.
+                </p>
+              </div>
+              <figure class="media" data-lightbox>
+                <img src="/images/chung-nhan.png" alt="Không khí lễ hội tại Đền Bà" loading="lazy">
+                <figcaption>Giấy chứng nhận Di tích Lịch sử - Kiến trúc Nghệ thuật</figcaption>
+              </figure>
+            </details>
+          </div>
+        </section>
+
+        <!-- II. DẤU MỐC LỊCH SỬ -->
+        <section class="section card" id="lichsu">
+          <header class="section-head">
+            <h2 class="section-title">II. Dấu mốc lịch sử</h2>
+            <p class="section-desc">Những mốc quan trọng liên quan di tích và vùng đất.</p>
+          </header>
+
+          <div class="timeline">
+            <div class="t-item">
+              <div class="t-dot"></div>
+              <div class="t-content">
+                <p class="t-title">1908 – 1909</p>
+                <p class="t-text">1908 hỏa hoạn cháy kiến trúc gỗ; 1909 nhân dân mua lại khung gỗ nhà thờ họ và dựng lại
+                  tại đền.</p>
+              </div>
             </div>
-          </details>
 
-          <details open>
-            <summary><i class="fa-solid fa-location-dot"></i> 2) Vị trí & Đường đi</summary>
-            <div class="details-body">
-              <ul class="no-dot">
-                <li><b>Địa chỉ:</b> thôn Xuân Lai, xã Xuân Thu, huyện Sóc Sơn, TP. Hà Nội.</li>
-                <li><b>Khoảng cách:</b> cách trung tâm Hà Nội khoảng 35km.</li>
-                <li><b>Gợi ý đường đi:</b> Hồ Hoàn Kiếm → cầu Chương Dương → Nguyễn Văn Cừ → cầu Đuống → QL3 →
-                  cầu Phủ Lỗ → đường 16 → đường liên xã → qua UBND xã Xuân Thu ~300m là đến đền.</li>
-              </ul>
+            <div class="t-item">
+              <div class="t-dot"></div>
+              <div class="t-content">
+                <p class="t-title">1866 – 1910 – 1924</p>
+                <p class="t-text">Di vật và tư liệu có mốc niên đại: chuông Tự Đức 19 (1866), hoành phi Duy Tân (1910),
+                  sắc phong Khải Định 9 (1924).</p>
+              </div>
             </div>
-          </details>
 
-          <details open>
-            <summary><i class="fa-solid fa-layer-group"></i> 3) Phân loại di tích</summary>
-            <div class="details-body">
-              <p>
-                Đền Bà là di tích tín ngưỡng thờ Thần của cộng đồng cư dân làng xã,
-                thuộc loại hình <b>Di tích Lịch sử</b> và <b>Kiến trúc – Nghệ thuật</b>.
-              </p>
+            <div class="t-item">
+              <div class="t-dot"></div>
+              <div class="t-content">
+                <p class="t-title">1945 – 1972</p>
+                <p class="t-text">
+                  Địa phương tham gia giành chính quyền 23/8/1945; trong kháng chiến đền có giai đoạn phục vụ hậu phương
+                  và nhiệm vụ quân giới,
+                  đồng thời là nơi hội họp, lớp học, kho lương thực.
+                </p>
+              </div>
             </div>
+
+            <div class="t-item">
+              <div class="t-dot"></div>
+              <div class="t-content">
+                <p class="t-title">1993 – 2012</p>
+                <p class="t-text">1993 lát nền gạch đỏ; 2012 lát sân, xây cổng và tôn tạo tả/hữu mạc.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- III. LỄ HỘI -->
+        <section class="section card" id="lehoi">
+          <header class="section-head">
+            <h2 class="section-title">III. Nghi lễ – Lễ hội</h2>
+            <p class="section-desc">Thời gian tổ chức, hoạt động và ý nghĩa cộng đồng.</p>
+          </header>
+
+          <h3 class="subhead">1) Lễ hội Đền Bà</h3>
+          <ul>
+            <li><b>Thời gian:</b> mùng 4 tháng Giêng âm lịch hằng năm.</li>
+            <li><b>Nội dung:</b> tế lễ, dâng hương; phần hội với các trò diễn dân gian, trong đó nổi bật là <b>Kéo
+                mỏ</b>.</li>
+          </ul>
+
+          <h3 class="subhead">2) Kéo mỏ – nghi lễ cộng đồng</h3>
+          <p>
+            Kéo mỏ là trò diễn theo phong cách nghi lễ, được tổ chức trang nghiêm với đầy đủ các bước chuẩn bị, làm mỏ,
+            chọn trai kéo mỏ, cách thức thi đấu và kết quả. Trong quan niệm dân gian, kết quả kéo mỏ gắn với ước nguyện
+            đầu năm:
+            mưa thuận gió hòa, mùa màng bội thu, sức khỏe và sự đoàn kết của cộng đồng.
+          </p>
+
+          <div class="media-grid two">
             <figure class="media" data-lightbox>
-              <img src="/images/chung-nhan.png" alt="Không khí lễ hội tại Đền Bà" loading="lazy">
-              <figcaption>Giấy chứng nhận Di tích Lịch sử - Kiến trúc Nghệ thuật</figcaption>
+              <!-- TODO: Thay ảnh lễ hội -->
+              <img src="/images/le-hoi.JPG" alt="Không khí lễ hội tại Đền Bà" loading="lazy">
+              <figcaption>Không khí lễ hội Đền Bà – nơi hội tụ nhân dân địa phương và khách thập phương.</figcaption>
             </figure>
-          </details>
-        </div>
-      </section>
 
-      <!-- II. DẤU MỐC LỊCH SỬ -->
-      <section class="section card" id="lichsu">
-        <header class="section-head">
-          <h2 class="section-title">II. Dấu mốc lịch sử</h2>
-          <p class="section-desc">Những mốc quan trọng liên quan di tích và vùng đất.</p>
-        </header>
+            <figure class="media">
+              <!-- TODO: Thay video nếu có -->
+              <video src="/images/00001 - Trim.mp4" controls playsinline preload="metadata"></video>
+              <figcaption>Video tư liệu lễ hội/kéo mỏ.</figcaption>
+            </figure>
+          </div>
+        </section>
 
-        <div class="timeline">
-          <div class="t-item">
-            <div class="t-dot"></div>
-            <div class="t-content">
-              <p class="t-title">1908 – 1909</p>
-              <p class="t-text">1908 hỏa hoạn cháy kiến trúc gỗ; 1909 nhân dân mua lại khung gỗ nhà thờ họ và dựng lại tại đền.</p>
+        <!-- IV. DI VẬT -->
+        <section class="section card" id="divat">
+          <header class="section-head">
+            <h2 class="section-title">IV. Di vật tiêu biểu</h2>
+            <p class="section-desc">Những hiện vật nổi bật phản ánh lịch sử và nghệ thuật trang trí truyền thống.</p>
+          </header>
+
+          <p>
+            Đền Bà lưu giữ hệ thống di vật có giá trị lịch sử – nghệ thuật, phản ánh phong cách thời Nguyễn như: hoành
+            phi, câu đối,
+            cửa võng, khám thờ, ngai thờ, hương án, nghi trượng… Trong đó có các mốc tư liệu quan trọng giúp khẳng định
+            niên đại và truyền thống thờ tự của di tích.
+          </p>
+
+          <div class="table-wrap" role="region" aria-label="Bảng di vật" tabindex="0">
+            <table class="artifact-table">
+              <thead>
+                <tr>
+                  <th>Loại</th>
+                  <th>Tên / Miêu tả</th>
+                  <th>Niên đại</th>
+                  <th>Ghi chú</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Chuông đồng</td>
+                  <td>Chuông đồng niên hiệu Tự Đức</td>
+                  <td>1866 (Tự Đức 19)</td>
+                  <td>Giá trị lịch sử – nghệ thuật</td>
+                </tr>
+                <tr>
+                  <td>Hoành phi</td>
+                  <td>“Kiến thiên muội”</td>
+                  <td>1910 (Duy Tân Canh Tuất)</td>
+                  <td>Ngưỡng vọng thánh trời</td>
+                </tr>
+                <tr>
+                  <td>Sắc phong</td>
+                  <td>Sắc phong cho Đống Nương Chế Thắng Hòa Diệu phu nhân</td>
+                  <td>1924 (Khải Định 9)</td>
+                  <td>Tư liệu Hán Nôm quan trọng</td>
+                </tr>
+                <tr>
+                  <td>Đồ thờ tự</td>
+                  <td>Khám thờ, ngai thờ, hương án, cửa võng…</td>
+                  <td>Phong cách thời Nguyễn</td>
+                  <td>Sơn son thếp vàng, đề tài tứ quý/tứ linh/hổ phù…</td>
+                </tr>
+                <tr>
+                  <td>Câu đối</td>
+                  <td>Hệ thống câu đối Hán Nôm tại Tiền tế</td>
+                  <td>Hiện có</td>
+                  <td>Nên dịch nghĩa đồng bộ để phục vụ tham quan – nghiên cứu</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- LIÊN HỆ (giữ nguyên phần của bạn) -->
+        <section class="section card" id="lienhe">
+          <header class="section-head">
+            <h2 class="section-title">Liên hệ</h2>
+            <p class="section-desc">Kết nối với Chi đoàn để cập nhật hoạt động và tư liệu di tích.</p>
+          </header>
+
+          <div class="contact-row">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-brands fa-facebook"></i></div>
+              <div>
+                <p class="contact-label">Facebook</p>
+                <a class="contact-link" target="_blank" rel="noopener"
+                  href="https://www.facebook.com/profile.php?id=100094565328082">
+                  Chi đoàn Thanh niên Xuân Lai
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-shield-heart"></i></div>
+              <div>
+                <p class="contact-label">Góp ý nội dung</p>
+                <p class="contact-text">Bạn có thể nhắn tin qua Facebook để bổ sung tư liệu và hình ảnh.</p>
+              </div>
             </div>
           </div>
-
-          <div class="t-item">
-            <div class="t-dot"></div>
-            <div class="t-content">
-              <p class="t-title">1866 – 1910 – 1924</p>
-              <p class="t-text">Di vật và tư liệu có mốc niên đại: chuông Tự Đức 19 (1866), hoành phi Duy Tân (1910), sắc phong Khải Định 9 (1924).</p>
-            </div>
-          </div>
-
-          <div class="t-item">
-            <div class="t-dot"></div>
-            <div class="t-content">
-              <p class="t-title">1945 – 1972</p>
-              <p class="t-text">
-                Địa phương tham gia giành chính quyền 23/8/1945; trong kháng chiến đền có giai đoạn phục vụ hậu phương và nhiệm vụ quân giới,
-                đồng thời là nơi hội họp, lớp học, kho lương thực.
-              </p>
-            </div>
-          </div>
-
-          <div class="t-item">
-            <div class="t-dot"></div>
-            <div class="t-content">
-              <p class="t-title">1993 – 2012</p>
-              <p class="t-text">1993 lát nền gạch đỏ; 2012 lát sân, xây cổng và tôn tạo tả/hữu mạc.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- III. LỄ HỘI -->
-      <section class="section card" id="lehoi">
-        <header class="section-head">
-          <h2 class="section-title">III. Nghi lễ – Lễ hội</h2>
-          <p class="section-desc">Thời gian tổ chức, hoạt động và ý nghĩa cộng đồng.</p>
-        </header>
-
-        <h3 class="subhead">1) Lễ hội Đền Bà</h3>
-        <ul>
-          <li><b>Thời gian:</b> mùng 4 tháng Giêng âm lịch hằng năm.</li>
-          <li><b>Nội dung:</b> tế lễ, dâng hương; phần hội với các trò diễn dân gian, trong đó nổi bật là <b>Kéo mỏ</b>.</li>
-        </ul>
-
-        <h3 class="subhead">2) Kéo mỏ – nghi lễ cộng đồng</h3>
-        <p>
-          Kéo mỏ là trò diễn theo phong cách nghi lễ, được tổ chức trang nghiêm với đầy đủ các bước chuẩn bị, làm mỏ,
-          chọn trai kéo mỏ, cách thức thi đấu và kết quả. Trong quan niệm dân gian, kết quả kéo mỏ gắn với ước nguyện đầu năm:
-          mưa thuận gió hòa, mùa màng bội thu, sức khỏe và sự đoàn kết của cộng đồng.
-        </p>
-
-        <div class="media-grid two">
-          <figure class="media" data-lightbox>
-            <!-- TODO: Thay ảnh lễ hội -->
-            <img src="/images/le-hoi.JPG" alt="Không khí lễ hội tại Đền Bà" loading="lazy">
-            <figcaption>Không khí lễ hội Đền Bà – nơi hội tụ nhân dân địa phương và khách thập phương.</figcaption>
-          </figure>
-
-          <figure class="media">
-            <!-- TODO: Thay video nếu có -->
-            <video src="/images/00001 - Trim.mp4" controls playsinline preload="metadata"></video>
-            <figcaption>Video tư liệu lễ hội/kéo mỏ (thay file video của bạn).</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- IV. DI VẬT -->
-      <section class="section card" id="divat">
-        <header class="section-head">
-          <h2 class="section-title">IV. Di vật tiêu biểu</h2>
-          <p class="section-desc">Những hiện vật nổi bật phản ánh lịch sử và nghệ thuật trang trí truyền thống.</p>
-        </header>
-
-        <p>
-          Đền Bà lưu giữ hệ thống di vật có giá trị lịch sử – nghệ thuật, phản ánh phong cách thời Nguyễn như: hoành phi, câu đối,
-          cửa võng, khám thờ, ngai thờ, hương án, nghi trượng… Trong đó có các mốc tư liệu quan trọng giúp khẳng định niên đại và truyền thống thờ tự của di tích.
-        </p>
-
-        <div class="table-wrap" role="region" aria-label="Bảng di vật" tabindex="0">
-          <table class="artifact-table">
-            <thead>
-              <tr>
-                <th>Loại</th>
-                <th>Tên / Miêu tả</th>
-                <th>Niên đại</th>
-                <th>Ghi chú</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Chuông đồng</td>
-                <td>Chuông đồng niên hiệu Tự Đức</td>
-                <td>1866 (Tự Đức 19)</td>
-                <td>Giá trị lịch sử – nghệ thuật</td>
-              </tr>
-              <tr>
-                <td>Hoành phi</td>
-                <td>“Kiến thiên muội”</td>
-                <td>1910 (Duy Tân Canh Tuất)</td>
-                <td>Ngưỡng vọng thánh trời</td>
-              </tr>
-              <tr>
-                <td>Sắc phong</td>
-                <td>Sắc phong cho Đống Nương Chế Thắng Hòa Diệu phu nhân</td>
-                <td>1924 (Khải Định 9)</td>
-                <td>Tư liệu Hán Nôm quan trọng</td>
-              </tr>
-              <tr>
-                <td>Đồ thờ tự</td>
-                <td>Khám thờ, ngai thờ, hương án, cửa võng…</td>
-                <td>Phong cách thời Nguyễn</td>
-                <td>Sơn son thếp vàng, đề tài tứ quý/tứ linh/hổ phù…</td>
-              </tr>
-              <tr>
-                <td>Câu đối</td>
-                <td>Hệ thống câu đối Hán Nôm tại Tiền tế</td>
-                <td>Hiện có</td>
-                <td>Nên dịch nghĩa đồng bộ để phục vụ tham quan – nghiên cứu</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- LIÊN HỆ (giữ nguyên phần của bạn) -->
-      <section class="section card" id="lienhe">
-        <header class="section-head">
-          <h2 class="section-title">Liên hệ</h2>
-          <p class="section-desc">Kết nối với Chi đoàn để cập nhật hoạt động và tư liệu di tích.</p>
-        </header>
-
-        <div class="contact-row">
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fa-brands fa-facebook"></i></div>
-            <div>
-              <p class="contact-label">Facebook</p>
-              <a class="contact-link" target="_blank" rel="noopener"
-                href="https://www.facebook.com/profile.php?id=100094565328082">
-                Chi đoàn Thanh niên Xuân Lai
-              </a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fa-solid fa-shield-heart"></i></div>
-            <div>
-              <p class="contact-label">Góp ý nội dung</p>
-              <p class="contact-text">Bạn có thể nhắn tin qua Facebook để bổ sung tư liệu và hình ảnh.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </article>
-  </div>
-</main>
+        </section>
+      </article>
+    </div>
+  </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -752,6 +786,9 @@
     <img id="lightboxImg" alt="Ảnh phóng to">
   </div>
 
+  <div class="toc-overlay" id="tocOverlay" aria-hidden="true"></div>
+
   <script src="script.js"></script>
 </body>
+
 </html>
